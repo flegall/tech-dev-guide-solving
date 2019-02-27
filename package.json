@@ -1,0 +1,21 @@
+{
+  "name": "tech-dev-guide-solving",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Florent Le Gall <florent.legall@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-flow": "^7.0.0",
+    "babel-jest": "^24.1.0",
+    "flow-bin": "0.93.0",
+    "flow-typed": "^2.5.1",
+    "jest": "24.1.0",
+    "prettier": "1.16.4"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}
