@@ -2,10 +2,10 @@
 export function solution1(
   sequence: string,
   words: $ReadOnlyArray<string>,
-): string {
-  return words
-    .filter(word => isSubSequenceOf(word, sequence))
-    .reduce((a, b) => (a.length > b.length ? a : b))
+): ?string {
+  return [...words]
+    .sort((a, b) => b.length - a.length)
+    .find(word => isSubSequenceOf(word, sequence))
 }
 
 export function isSubSequenceOf(word: string, sequence: string): boolean {
@@ -13,7 +13,6 @@ export function isSubSequenceOf(word: string, sequence: string): boolean {
 
   for (let i = 0; i < word.length; i++) {
     const letterInWord = word[i]
-    debugger
     const indexOfFoundLetterInSequence = sequence.indexOf(
       letterInWord,
       currentPositionInSequence,
