@@ -1,5 +1,6 @@
 // @flow strict
 import { solution0, allSubSequences } from "./solution0"
+import { solution0_5, Trie } from "./solution0_5"
 import { solution1, isSubSequenceOf } from "./solution1"
 
 test("solution0", () => {
@@ -19,6 +20,49 @@ test("allSubSequences", () => {
     b: true,
     ab: true,
   })
+})
+
+test("solution0_5", () => {
+  const S = "abppplee"
+  const D = ["able", "ale", "apple", "bale", "kangaroo"]
+
+  const word = solution0_5(S, D)
+
+  expect(word).toEqual("apple")
+})
+
+test("Trie", () => {
+  expect(new Trie().addPrefixCharacter("c").hasWord("c")).toBe(true)
+  expect(
+    new Trie()
+      .addPrefixCharacter("c")
+      .addPrefixCharacter("a")
+      .hasWord("c"),
+  ).toBe(true)
+  expect(
+    new Trie()
+      .addPrefixCharacter("c")
+      .addPrefixCharacter("a")
+      .hasWord("a"),
+  ).toBe(true)
+  expect(
+    new Trie()
+      .addPrefixCharacter("d")
+      .addPrefixCharacter("a")
+      .hasWord("ad"),
+  ).toBe(true)
+  expect(
+    new Trie()
+      .addPrefixCharacter("e")
+      .addPrefixCharacter("e")
+      .addPrefixCharacter("l")
+      .addPrefixCharacter("p")
+      .addPrefixCharacter("p")
+      .addPrefixCharacter("p")
+      .addPrefixCharacter("b")
+      .addPrefixCharacter("a")
+      .hasWord("appple"),
+  ).toBe(true)
 })
 
 test("solution1", () => {
