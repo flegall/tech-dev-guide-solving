@@ -2,6 +2,7 @@
 import { solution0, allSubSequences } from "./solution0"
 import { solution0_5, Trie } from "./solution0_5"
 import { solution1, isSubSequenceOf } from "./solution1"
+import { solution2, findIndexAfter } from "./solution2"
 
 test("solution0", () => {
   const S = "abppplee"
@@ -83,4 +84,21 @@ test("isSubSequenceOf", () => {
   expect(isSubSequenceOf("app", "app")).toBe(true)
   expect(isSubSequenceOf("apple", "abppplee")).toBe(true)
   expect(isSubSequenceOf("apple", "abplee")).toBe(false)
+})
+
+test("solution2", () => {
+  const S = "abppplee"
+  const D = ["able", "ale", "apple", "bale", "kangaroo"]
+
+  const word = solution2(S, D)
+
+  expect(word).toEqual("apple")
+})
+
+test("findIndexAfter", () => {
+  expect(findIndexAfter([1], 1)).toBe(1)
+  expect(findIndexAfter([1, 2], 1)).toBe(1)
+  expect(findIndexAfter([1, 2], 2)).toBe(2)
+  expect(findIndexAfter([1, 2, 4], 3)).toBe(4)
+  expect(findIndexAfter([1, 2, 4, 5, 9, 10], 7)).toBe(9)
 })
